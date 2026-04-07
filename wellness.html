@@ -1,0 +1,3306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#FDF2F8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My Health Journey</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+   DESIGN TOKEN SYSTEM — "BLOOM" — Feminine Luxury Wellness
+   ═══════════════════════════════════════════════════════════ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #FDF2F8;
+      --bg-deep: #F9E8F0;
+
+      /* Mesh orbs */
+      --orb-1: #FBCFE8;
+      --orb-2: #C4B5FD;
+      --orb-3: #A7F3D0;
+      --orb-4: #FDE68A;
+
+      /* Glass */
+      --g-bg: rgba(255, 255, 255, 0.45);
+      --g-bg-heavy: rgba(255, 255, 255, 0.62);
+      --g-border: rgba(255, 255, 255, 0.65);
+      --g-border-light: rgba(255, 255, 255, 0.35);
+      --g-shadow: 0 8px 40px rgba(120, 40, 80, 0.07), 0 1.5px 4px rgba(120, 40, 80, 0.04);
+      --g-shadow-lg: 0 16px 64px rgba(120, 40, 80, 0.10), 0 2px 8px rgba(120, 40, 80, 0.05);
+      --g-blur: blur(28px);
+      --g-saturate: saturate(1.6);
+      --g-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.15) 100%);
+
+      /* Palette */
+      --rose: #E11D48;
+      --rose-soft: rgba(225, 29, 72, 0.08);
+      --rose-mid: rgba(225, 29, 72, 0.18);
+      --rose-glow: rgba(225, 29, 72, 0.30);
+      --plum: #9333EA;
+      --plum-soft: rgba(147, 51, 234, 0.08);
+      --sage: #059669;
+      --sage-soft: rgba(5, 150, 105, 0.08);
+      --amber: #D97706;
+      --amber-soft: rgba(217, 119, 6, 0.08);
+      --sky: #0284C7;
+      --sky-soft: rgba(2, 132, 199, 0.08);
+      --coral: #F43F5E;
+      --coral-soft: rgba(244, 63, 94, 0.08);
+
+      /* Text */
+      --t1: #1C1017;
+      --t2: #6B4C5E;
+      --t3: #A8849A;
+
+      /* Layout */
+      --r-xl: 28px;
+      --r-lg: 22px;
+      --r-md: 16px;
+      --r-sm: 12px;
+      --r-full: 999px;
+      --hdr: 58px;
+      --tab: 72px;
+
+      /* Type */
+      --f-body: 'DM Sans', system-ui, sans-serif;
+      --f-display: 'Instrument Serif', Georgia, serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0A0610;
+      --bg-deep: #120D18;
+      --orb-1: #4A1942;
+      --orb-2: #2E1065;
+      --orb-3: #064E3B;
+      --orb-4: #451A03;
+
+      --g-bg: rgba(255, 255, 255, 0.035);
+      --g-bg-heavy: rgba(255, 255, 255, 0.06);
+      --g-border: rgba(255, 255, 255, 0.08);
+      --g-border-light: rgba(255, 255, 255, 0.04);
+      --g-shadow: 0 8px 40px rgba(0, 0, 0, 0.35), 0 1.5px 4px rgba(0, 0, 0, 0.2);
+      --g-shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.5);
+      --g-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0.03) 100%);
+
+      --rose: #FB7185;
+      --rose-soft: rgba(251, 113, 133, 0.10);
+      --rose-mid: rgba(251, 113, 133, 0.18);
+      --rose-glow: rgba(251, 113, 133, 0.25);
+      --plum: #C084FC;
+      --plum-soft: rgba(192, 132, 252, 0.10);
+      --sage: #34D399;
+      --sage-soft: rgba(52, 211, 153, 0.10);
+      --amber: #FBBF24;
+      --amber-soft: rgba(251, 191, 36, 0.10);
+      --sky: #38BDF8;
+      --sky-soft: rgba(56, 189, 248, 0.10);
+      --coral: #FB7185;
+      --coral-soft: rgba(251, 113, 133, 0.10);
+
+      --t1: #F5EEF2;
+      --t2: #B8A0B0;
+      --t3: #7A6572;
+    }
+
+    html {
+      font-size: 18px
+    }
+
+    body {
+      font-family: var(--f-body);
+      background: var(--bg);
+      color: var(--t1);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      height: 100dvh;
+      transition: background .6s, color .5s;
+    }
+
+    /* ═══════ ANIMATED MESH ═══════ */
+    .mesh {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden
+    }
+
+    .mesh i {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .55;
+      transition: background .7s
+    }
+
+    .mesh .o1 {
+      width: 55vmax;
+      height: 55vmax;
+      top: -15%;
+      left: -15%;
+      background: var(--orb-1);
+      animation: mf1 20s ease-in-out infinite
+    }
+
+    .mesh .o2 {
+      width: 50vmax;
+      height: 50vmax;
+      bottom: -10%;
+      right: -20%;
+      background: var(--orb-2);
+      animation: mf2 25s ease-in-out infinite
+    }
+
+    .mesh .o3 {
+      width: 45vmax;
+      height: 45vmax;
+      top: 35%;
+      left: 45%;
+      background: var(--orb-3);
+      animation: mf3 22s ease-in-out infinite
+    }
+
+    .mesh .o4 {
+      width: 40vmax;
+      height: 40vmax;
+      bottom: 20%;
+      left: 5%;
+      background: var(--orb-4);
+      animation: mf4 28s ease-in-out infinite
+    }
+
+    @keyframes mf1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(18vw, 12vh) scale(1.18)
+      }
+    }
+
+    @keyframes mf2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(-14vw, -18vh) scale(1.12)
+      }
+    }
+
+    @keyframes mf3 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(-22vw, 10vh) scale(1.22)
+      }
+    }
+
+    @keyframes mf4 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(15vw, -14vh) scale(1.15)
+      }
+    }
+
+    /* ═══════ GLASS MIXIN (via class) ═══════ */
+    .gl {
+      position: relative;
+      background: var(--g-bg);
+      backdrop-filter: var(--g-blur) var(--g-saturate);
+      -webkit-backdrop-filter: var(--g-blur) var(--g-saturate);
+      border: 1px solid var(--g-border);
+      box-shadow: var(--g-shadow);
+    }
+
+    .gl::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--g-shine);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .gl>* {
+      position: relative;
+      z-index: 1
+    }
+
+    .gl-heavy {
+      background: var(--g-bg-heavy)
+    }
+
+    /* ═══════ HEADER ═══════ */
+    .hdr {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: var(--hdr);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 10px;
+      background: var(--g-bg-heavy);
+      backdrop-filter: blur(36px) var(--g-saturate);
+      -webkit-backdrop-filter: blur(36px) var(--g-saturate);
+      border-bottom: 1px solid var(--g-border-light);
+      transition: all .5s;
+    }
+
+    .hdr-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--r-sm);
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--rose), var(--plum));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hdr-logo svg {
+      width: 18px;
+      height: 18px;
+      color: #fff;
+      stroke: #fff
+    }
+
+    .hdr-t {
+      font-family: var(--f-display);
+      font-size: 1.15rem;
+      color: var(--t1);
+      flex: 1;
+      transition: color .5s
+    }
+
+    .hdr-badge {
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--rose);
+      background: var(--rose-soft);
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all .5s;
+    }
+
+    .hdr-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--r-full);
+      background: var(--g-bg);
+      border: 1px solid var(--g-border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--t1);
+      flex-shrink: 0;
+      transition: all .4s;
+    }
+
+    .hdr-btn:active {
+      transform: scale(.88)
+    }
+
+    .hdr-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform .6s
+    }
+
+    [data-theme="dark"] .hdr-btn svg {
+      transform: rotate(180deg)
+    }
+
+    /* ═══════ MAIN ═══════ */
+    .main {
+      position: fixed;
+      top: var(--hdr);
+      bottom: var(--tab);
+      left: 0;
+      right: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      z-index: 10;
+    }
+
+    .pg {
+      display: none;
+      padding: 16px 14px 32px;
+      max-width: 540px;
+      margin: 0 auto
+    }
+
+    .pg.on {
+      display: block;
+      animation: pgIn .4s ease
+    }
+
+    @keyframes pgIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ═══════ TAB BAR — Floating Capsule ═══════ */
+    .tab-wrap {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 0 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    .tab-bar {
+      height: 58px;
+      border-radius: var(--r-xl);
+      background: var(--g-bg-heavy);
+      backdrop-filter: blur(36px) var(--g-saturate);
+      -webkit-backdrop-filter: blur(36px) var(--g-saturate);
+      border: 1px solid var(--g-border);
+      box-shadow: var(--g-shadow-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transition: all .5s;
+    }
+
+    .tb {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      background: none;
+      border: none;
+      padding: 6px 0;
+      cursor: pointer;
+      color: var(--t3);
+      font-size: .58rem;
+      font-weight: 600;
+      font-family: var(--f-body);
+      letter-spacing: .3px;
+      transition: color .3s;
+      min-width: 48px;
+    }
+
+    .tb svg {
+      width: 20px;
+      height: 20px;
+      transition: all .3s;
+      stroke-width: 2
+    }
+
+    .tb.on {
+      color: var(--rose)
+    }
+
+    .tb.on svg {
+      transform: translateY(-1px);
+      filter: drop-shadow(0 3px 8px var(--rose-glow))
+    }
+
+    /* ═══════ CARD ═══════ */
+    .cd {
+      position: relative;
+      border-radius: var(--r-lg);
+      padding: 20px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      background: var(--g-bg);
+      backdrop-filter: var(--g-blur) var(--g-saturate);
+      -webkit-backdrop-filter: var(--g-blur) var(--g-saturate);
+      border: 1px solid var(--g-border);
+      box-shadow: var(--g-shadow);
+      transition: all .5s;
+    }
+
+    .cd::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--g-shine);
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .cd>* {
+      position: relative;
+      z-index: 1
+    }
+
+    .cd-rose {
+      border-left: 3px solid var(--rose)
+    }
+
+    .cd-sage {
+      border-left: 3px solid var(--sage)
+    }
+
+    .cd-plum {
+      border-left: 3px solid var(--plum)
+    }
+
+    .cd-sky {
+      border-left: 3px solid var(--sky)
+    }
+
+    /* ═══════ TYPOGRAPHY ═══════ */
+    .st {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--t1)
+    }
+
+    .st svg {
+      width: 22px;
+      height: 22px;
+      color: var(--rose);
+      flex-shrink: 0;
+      stroke-width: 2.2
+    }
+
+    .st .tag {
+      margin-left: auto;
+      font-size: .62rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      background: var(--rose-soft);
+      color: var(--rose)
+    }
+
+    .h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .98rem;
+      font-weight: 700;
+      margin: 16px 0 10px;
+      color: var(--rose)
+    }
+
+    .h3 svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.2
+    }
+
+    p,
+    .li {
+      font-size: .9rem;
+      color: var(--t2);
+      margin-bottom: 7px;
+      transition: color .5s
+    }
+
+    ul {
+      padding-left: 18px
+    }
+
+    li {
+      font-size: .88rem;
+      color: var(--t2);
+      margin-bottom: 5px
+    }
+
+    strong {
+      color: var(--t1);
+      font-weight: 700
+    }
+
+    /* ═══════ ALERT BOXES ═══════ */
+    .al {
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+      margin: 12px 0;
+      font-size: .84rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.55
+    }
+
+    .al svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      stroke-width: 2.2
+    }
+
+    .al-g {
+      background: var(--sage-soft);
+      color: var(--sage);
+      border: 1px solid rgba(5, 150, 105, .15)
+    }
+
+    .al-r {
+      background: var(--coral-soft);
+      color: var(--coral);
+      border: 1px solid rgba(244, 63, 94, .15)
+    }
+
+    .al-a {
+      background: var(--amber-soft);
+      color: var(--amber);
+      border: 1px solid rgba(217, 119, 6, .15)
+    }
+
+    .al-b {
+      background: var(--sky-soft);
+      color: var(--sky);
+      border: 1px solid rgba(2, 132, 199, .15)
+    }
+
+    .al-p {
+      background: var(--plum-soft);
+      color: var(--plum);
+      border: 1px solid rgba(147, 51, 234, .15)
+    }
+
+    /* ═══════ HERO ═══════ */
+    .hero {
+      position: relative;
+      border-radius: var(--r-xl);
+      padding: 30px 24px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      min-height: 150px;
+      background: linear-gradient(135deg, #E11D48, #9333EA 50%, #7C3AED);
+      color: #fff;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, .18), transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, .08), transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero>* {
+      position: relative;
+      z-index: 1
+    }
+
+    .hero-sub {
+      font-size: .82rem;
+      opacity: .82;
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .hero-sub svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2
+    }
+
+    .hero h2 {
+      font-family: var(--f-display);
+      font-size: 1.55rem;
+      margin-bottom: 5px
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, .85);
+      font-size: .88rem;
+      margin: 0
+    }
+
+    /* ═══════ BENTO GRID ═══════ */
+    .bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px
+    }
+
+    .bn {
+      position: relative;
+      border-radius: var(--r-lg);
+      padding: 18px 16px;
+      cursor: pointer;
+      overflow: hidden;
+      background: var(--g-bg);
+      backdrop-filter: var(--g-blur) var(--g-saturate);
+      -webkit-backdrop-filter: var(--g-blur) var(--g-saturate);
+      border: 1px solid var(--g-border);
+      box-shadow: var(--g-shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .bn:active {
+      transform: scale(.96)
+    }
+
+    .bn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--g-shine);
+      pointer-events: none
+    }
+
+    .bn>* {
+      position: relative;
+      z-index: 1
+    }
+
+    .bn-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .bn-ico svg {
+      width: 20px;
+      height: 20px;
+      color: #fff;
+      stroke-width: 2
+    }
+
+    .bn-ico.c1 {
+      background: linear-gradient(135deg, #E11D48, #F43F5E)
+    }
+
+    .bn-ico.c2 {
+      background: linear-gradient(135deg, #059669, #34D399)
+    }
+
+    .bn-ico.c3 {
+      background: linear-gradient(135deg, #9333EA, #C084FC)
+    }
+
+    .bn-ico.c4 {
+      background: linear-gradient(135deg, #D97706, #FBBF24)
+    }
+
+    .bn-t {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--t1)
+    }
+
+    .bn-s {
+      font-size: .7rem;
+      color: var(--t3);
+      margin-top: 2px
+    }
+
+    /* ═══════ STAT PILLS ═══════ */
+    .stats {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px
+    }
+
+    .sp {
+      flex: 1;
+      border-radius: var(--r-lg);
+      padding: 16px 10px;
+      text-align: center;
+      background: var(--g-bg);
+      backdrop-filter: var(--g-blur) var(--g-saturate);
+      -webkit-backdrop-filter: var(--g-blur) var(--g-saturate);
+      border: 1px solid var(--g-border);
+      transition: all .5s;
+    }
+
+    .sp-v {
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--rose), var(--plum));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .sp-l {
+      font-size: .62rem;
+      font-weight: 600;
+      color: var(--t3);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: .5px
+    }
+
+    /* ═══════ CHECKLIST ═══════ */
+    .ck {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--g-border-light);
+      transition: border-color .5s
+    }
+
+    .ck:last-child {
+      border: none
+    }
+
+    .cb {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--r-sm);
+      flex-shrink: 0;
+      border: 2.5px solid var(--t3);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .3s;
+    }
+
+    .cb:active {
+      transform: scale(.85)
+    }
+
+    .cb.on {
+      background: var(--sage);
+      border-color: var(--sage);
+      animation: pop .35s ease
+    }
+
+    .cb.on::after {
+      content: '';
+      width: 10px;
+      height: 6px;
+      border-left: 2.5px solid #fff;
+      border-bottom: 2.5px solid #fff;
+      transform: rotate(-45deg) translateY(-1px)
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(1)
+      }
+
+      40% {
+        transform: scale(1.25)
+      }
+
+      100% {
+        transform: scale(1)
+      }
+    }
+
+    .cl {
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--t1);
+      transition: color .5s
+    }
+
+    /* ═══════ QUOTE ═══════ */
+    .qc {
+      border-radius: var(--r-lg);
+      padding: 22px 20px;
+      text-align: center;
+      margin-bottom: 16px;
+      overflow: hidden;
+      position: relative;
+      background: var(--g-bg);
+      backdrop-filter: var(--g-blur) var(--g-saturate);
+      -webkit-backdrop-filter: var(--g-blur) var(--g-saturate);
+      border: 1px solid var(--g-border);
+    }
+
+    .qc::after {
+      content: '\201C';
+      position: absolute;
+      top: -14px;
+      left: 14px;
+      font-family: var(--f-display);
+      font-size: 6rem;
+      color: var(--rose);
+      opacity: .08;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .qc p {
+      font-family: var(--f-display);
+      font-size: 1.02rem;
+      font-style: italic;
+      color: var(--t1);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1
+    }
+
+    /* ═══════ TIMELINE ═══════ */
+    .tl {
+      position: relative;
+      padding-left: 32px
+    }
+
+    .tl::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      bottom: 10px;
+      width: 2.5px;
+      border-radius: 2px;
+      background: linear-gradient(to bottom, var(--rose), var(--plum), var(--sage), var(--sky));
+      opacity: .25
+    }
+
+    .ti {
+      position: relative;
+      margin-bottom: 20px
+    }
+
+    .ti:last-child {
+      margin-bottom: 0
+    }
+
+    .td {
+      position: absolute;
+      left: -26px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2.5px solid var(--rose);
+      box-shadow: 0 0 0 4px var(--rose-soft);
+      z-index: 2;
+      transition: background .5s
+    }
+
+    .tt {
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--rose);
+      letter-spacing: .5px;
+      margin-bottom: 2px;
+      text-transform: uppercase
+    }
+
+    .th {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .th svg {
+      width: 16px;
+      height: 16px;
+      color: var(--rose);
+      stroke-width: 2.2
+    }
+
+    .tp {
+      font-size: .82rem;
+      color: var(--t2);
+      margin: 0
+    }
+
+    /* ═══════ PHASE/DAY TABS ═══════ */
+    .pts {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px
+    }
+
+    .pts::-webkit-scrollbar {
+      display: none
+    }
+
+    .pt {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      border-radius: var(--r-full);
+      font-size: .76rem;
+      font-weight: 700;
+      border: 1px solid var(--g-border);
+      cursor: pointer;
+      font-family: var(--f-body);
+      background: var(--g-bg);
+      color: var(--t3);
+      backdrop-filter: var(--g-blur);
+      -webkit-backdrop-filter: var(--g-blur);
+      transition: all .3s;
+      white-space: nowrap;
+    }
+
+    .pt.on {
+      background: var(--rose);
+      color: #fff;
+      border-color: var(--rose);
+      box-shadow: 0 4px 16px var(--rose-glow)
+    }
+
+    .dt {
+      flex-shrink: 0;
+      padding: 9px 14px;
+      border-radius: var(--r-full);
+      font-size: .74rem;
+      font-weight: 700;
+      border: 1px solid var(--g-border);
+      cursor: pointer;
+      font-family: var(--f-body);
+      background: var(--g-bg);
+      color: var(--t3);
+      transition: all .3s;
+      white-space: nowrap;
+    }
+
+    .dt.on {
+      background: var(--sage);
+      color: #fff;
+      border-color: var(--sage);
+      box-shadow: 0 4px 14px rgba(5, 150, 105, .3)
+    }
+
+    .pc {
+      display: none
+    }
+
+    .pc.on {
+      display: block;
+      animation: pgIn .3s ease
+    }
+
+    /* ═══════ EXERCISE ITEM ═══════ */
+    .ei {
+      border-radius: var(--r-md);
+      padding: 16px;
+      margin-bottom: 10px;
+      background: var(--rose-soft);
+      border: 1px solid rgba(225, 29, 72, .06);
+      transition: all .5s;
+    }
+
+    .ei h4 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .ei h4 svg {
+      width: 15px;
+      height: 15px;
+      color: var(--rose);
+      stroke-width: 2.2
+    }
+
+    .ei p {
+      font-size: .82rem;
+      margin-bottom: 4px
+    }
+
+    .ei-r {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, var(--rose), var(--plum));
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: var(--r-full);
+      font-size: .7rem;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .ei-r svg {
+      width: 12px;
+      height: 12px;
+      stroke-width: 2.5
+    }
+
+    /* ═══════ YOGA ITEM ═══════ */
+    .yi {
+      border-radius: var(--r-md);
+      padding: 16px;
+      margin-bottom: 10px;
+      background: var(--plum-soft);
+      border: 1px solid rgba(147, 51, 234, .06);
+      transition: all .5s;
+    }
+
+    .yi h4 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--plum);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .yi h4 svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.2
+    }
+
+    .yi p {
+      font-size: .82rem;
+      margin-bottom: 4px
+    }
+
+    .yi-d {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, var(--plum), var(--sky));
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: var(--r-full);
+      font-size: .7rem;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .yi-d svg {
+      width: 12px;
+      height: 12px;
+      stroke-width: 2.5
+    }
+
+    /* ═══════ WALKING BAR ═══════ */
+    .wb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px
+    }
+
+    .wb-l {
+      width: 40px;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--t3);
+      flex-shrink: 0
+    }
+
+    .wb-t {
+      flex: 1;
+      height: 28px;
+      border-radius: var(--r-full);
+      background: var(--rose-soft);
+      overflow: hidden
+    }
+
+    .wb-f {
+      height: 100%;
+      border-radius: var(--r-full);
+      background: linear-gradient(90deg, var(--rose), var(--plum));
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: .7rem;
+      color: #fff;
+      font-weight: 700;
+      transition: width .6s;
+    }
+
+    /* ═══════ MEAL ITEM ═══════ */
+    .mi {
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      background: var(--sage-soft);
+      border: 1px solid rgba(5, 150, 105, .06);
+      transition: all .5s;
+    }
+
+    .mi-t {
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--sage);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .mi-t svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.5
+    }
+
+    .mi-n {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--t1);
+      margin-bottom: 3px
+    }
+
+    .mi-c {
+      font-size: .74rem;
+      color: var(--sage);
+      font-weight: 700
+    }
+
+    /* ═══════ TRACKER ═══════ */
+    .tr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px
+    }
+
+    .tr label {
+      flex: 1;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--t1)
+    }
+
+    .tr input,
+    .tr select {
+      width: 100px;
+      padding: 10px 12px;
+      border: 2px solid var(--g-border);
+      border-radius: var(--r-md);
+      font-size: .9rem;
+      font-family: var(--f-body);
+      color: var(--t1);
+      background: var(--g-bg);
+      transition: all .3s;
+    }
+
+    .tr input:focus,
+    .tr select:focus {
+      outline: none;
+      border-color: var(--rose);
+      box-shadow: 0 0 0 4px var(--rose-soft)
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: var(--r-md);
+      background: linear-gradient(135deg, var(--rose), var(--plum));
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 700;
+      font-family: var(--f-body);
+      cursor: pointer;
+      transition: all .3s;
+    }
+
+    .btn:active {
+      transform: scale(.98);
+      opacity: .9
+    }
+
+    .btn-s {
+      padding: 10px 22px;
+      font-size: .82rem;
+      width: auto;
+      border-radius: var(--r-full)
+    }
+
+    .btn-o {
+      background: transparent;
+      border: 2px solid var(--rose);
+      color: var(--rose)
+    }
+
+    .btn-o:active {
+      background: var(--rose-soft)
+    }
+
+    /* Scale */
+    .sr {
+      display: flex;
+      gap: 5px;
+      margin: 8px 0 16px
+    }
+
+    .sb {
+      flex: 1;
+      padding: 11px 0;
+      border-radius: var(--r-md);
+      border: 2px solid var(--g-border);
+      background: var(--g-bg);
+      font-size: .78rem;
+      font-weight: 700;
+      font-family: var(--f-body);
+      cursor: pointer;
+      text-align: center;
+      color: var(--t1);
+      transition: all .3s;
+    }
+
+    .sb:active {
+      transform: scale(.94)
+    }
+
+    .sb.on {
+      border-color: var(--rose);
+      background: var(--rose-soft);
+      color: var(--rose)
+    }
+
+    /* Table */
+    .ht {
+      width: 100%;
+      font-size: .78rem;
+      border-collapse: collapse
+    }
+
+    .ht th {
+      background: var(--rose-soft);
+      padding: 10px 8px;
+      font-weight: 700;
+      text-align: left;
+      color: var(--rose)
+    }
+
+    .ht th:first-child {
+      border-radius: var(--r-sm) 0 0 var(--r-sm)
+    }
+
+    .ht th:last-child {
+      border-radius: 0 var(--r-sm) var(--r-sm) 0
+    }
+
+    .ht td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--g-border-light);
+      color: var(--t2)
+    }
+
+    /* ═══════ TOAST ═══════ */
+    .toast {
+      position: fixed;
+      bottom: calc(var(--tab) + 20px);
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--t1);
+      color: var(--bg);
+      padding: 12px 28px;
+      border-radius: var(--r-full);
+      font-size: .84rem;
+      font-weight: 600;
+      z-index: 500;
+      opacity: 0;
+      transition: all .4s;
+      pointer-events: none;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+    }
+
+    .toast.on {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0)
+    }
+
+    /* ═══════ INSTALL ═══════ */
+    .inst {
+      display: none;
+      position: fixed;
+      bottom: calc(var(--tab) + 8px);
+      left: 14px;
+      right: 14px;
+      z-index: 300;
+      border-radius: var(--r-lg);
+      padding: 14px 16px;
+      background: var(--g-bg-heavy);
+      backdrop-filter: blur(30px) var(--g-saturate);
+      -webkit-backdrop-filter: blur(30px) var(--g-saturate);
+      border: 1px solid var(--g-border);
+      box-shadow: var(--g-shadow-lg);
+      align-items: center;
+      gap: 10px;
+    }
+
+    .inst p {
+      flex: 1;
+      font-size: .82rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--t1)
+    }
+
+    .inst .cls {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--t3);
+      padding: 4px
+    }
+
+    .inst .cls svg {
+      width: 18px;
+      height: 18px
+    }
+
+    /* ═══════ DIVIDER ═══════ */
+    .dv {
+      height: 1px;
+      background: var(--g-border-light);
+      margin: 16px 0
+    }
+
+    /* ═══════ RESPONSIVE ═══════ */
+    @media(min-width:520px) {
+      .pg {
+        padding: 24px 20px 36px
+      }
+    }
+
+    @media(min-width:768px) {
+      .pg {
+        max-width: 640px
+      }
+
+      .bento {
+        grid-template-columns: 1fr 1fr 1fr 1fr
+      }
+
+      .stats {
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto
+      }
+    }
+
+    @media(min-width:1024px) {
+      .pg {
+        max-width: 720px;
+        padding: 32px 28px 40px
+      }
+
+      .hero {
+        padding: 40px 36px;
+        min-height: 180px
+      }
+
+      .hero h2 {
+        font-size: 1.8rem
+      }
+    }
+
+    @media(max-width:359px) {
+      html {
+        font-size: 16px
+      }
+
+      .hdr {
+        padding: 0 10px
+      }
+
+      .bn {
+        padding: 14px 12px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MESH BACKGROUND -->
+  <div class="mesh"><i class="o1"></i><i class="o2"></i><i class="o3"></i><i class="o4"></i></div>
+
+  <!-- HEADER -->
+  <header class="hdr">
+    <div class="hdr-logo"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+        <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
+      </svg></div>
+    <span class="hdr-t">My Health Journey</span>
+    <span class="hdr-badge" id="hd"></span>
+    <button class="hdr-btn" onclick="togTheme()" aria-label="Toggle theme" id="thbtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ico-sun">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="m17.66 17.66 1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="m6.34 17.66-1.41 1.41" />
+        <path d="m19.07 4.93-1.41 1.41" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ico-moon"
+        style="display:none">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </svg>
+    </button>
+  </header>
+
+  <!-- ═══════════════════ PAGES ═══════════════════ -->
+  <div class="main" id="ms">
+
+    <!-- ═══ HOME ═══ -->
+    <div class="pg on" id="pg-home">
+      <div class="hero">
+        <div class="hero-sub" id="greet"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 3v1" />
+            <path d="M18.4 5.6l-.7.7" />
+            <path d="M21 12h-1" />
+            <path d="M18.4 18.4l-.7-.7" />
+            <path d="M12 21v-1" />
+            <path d="M5.6 18.4l.7-.7" />
+            <path d="M3 12h1" />
+            <path d="M5.6 5.6l.7.7" />
+            <circle cx="12" cy="12" r="4" />
+          </svg> Good Morning</div>
+        <h2>Your Wellness Plan</h2>
+        <p>One small step at a time — every day matters</p>
+      </div>
+
+      <div class="bento">
+        <div class="bn" onclick="go('routine')">
+          <div class="bn-ico c1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 10V2" />
+              <path d="m4.93 10.93 1.41 1.41" />
+              <path d="M2 18h2" />
+              <path d="M20 18h2" />
+              <path d="m19.07 10.93-1.41 1.41" />
+              <path d="M22 22H2" />
+              <path d="m8 6 4-4 4 4" />
+              <path d="M16 18a4 4 0 0 0-8 0" />
+            </svg></div>
+          <div class="bn-t">Daily Routine</div>
+          <div class="bn-s">Hour by hour</div>
+        </div>
+        <div class="bn" onclick="go('exercise')">
+          <div class="bn-ico c2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.4 14.4 9.6 9.6" />
+              <path
+                d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+              <path d="m21.5 21.5-1.4-1.4" />
+              <path d="M3.9 3.9 2.5 2.5" />
+              <path
+                d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+            </svg></div>
+          <div class="bn-t">Exercise</div>
+          <div class="bn-s">4-phase plan</div>
+        </div>
+        <div class="bn" onclick="go('food')">
+          <div class="bn-ico c3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+              <path d="M7 2v20" />
+              <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+            </svg></div>
+          <div class="bn-t">Meal Plan</div>
+          <div class="bn-s">Jain nutrition</div>
+        </div>
+        <div class="bn" onclick="go('track')">
+          <div class="bn-ico c4"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+              <path d="M7 16l4-8 4 5 4-9" />
+            </svg></div>
+          <div class="bn-t">Track</div>
+          <div class="bn-s">Weight, mood, food</div>
+        </div>
+      </div>
+
+      <div class="cd cd-rose">
+        <div class="st"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 18H3" />
+            <path d="m15 18 2 2 4-4" />
+            <path d="M16 12H3" />
+            <path d="M16 6H3" />
+          </svg> Today's Plan</div>
+        <div id="hc">
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">Wake up by 6:30 AM, drink warm
+              water</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">10 min gentle stretching</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">5 min Pranayam (deep
+              breathing)</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">Healthy breakfast by 8:30
+              AM</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">20 min walking</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">Drink 8+ glasses of
+              water</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">Yoga / meditation in
+              evening</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">Light dinner by 7:30 PM</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="this.classList.toggle('on')"></div><span class="cl">Screen off by 9:30 PM, sleep by
+              10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="sp">
+          <div class="sp-v">79</div>
+          <div class="sp-l">Current Kg</div>
+        </div>
+        <div class="sp">
+          <div class="sp-v">50</div>
+          <div class="sp-l">Target Kg</div>
+        </div>
+        <div class="sp">
+          <div class="sp-v">1354</div>
+          <div class="sp-l">Daily Cal</div>
+        </div>
+      </div>
+
+      <div class="qc">
+        <p id="dq">"The body achieves what the mind believes."</p>
+      </div>
+    </div>
+
+    <!-- ═══ ROUTINE ═══ -->
+    <div class="pg" id="pg-routine">
+      <div class="st"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+          <line x1="16" x2="16" y1="2" y2="6" />
+          <line x1="8" x2="8" y1="2" y2="6" />
+          <line x1="3" x2="21" y1="10" y2="10" />
+          <path d="M8 14h.01" />
+          <path d="M12 14h.01" />
+          <path d="M16 14h.01" />
+          <path d="M8 18h.01" />
+          <path d="M12 18h.01" />
+        </svg> Daily Routine</div>
+      <p style="margin-bottom:18px">Follow this as closely as you can. Adjusting by 30 minutes is fine. Consistency is
+        the key.</p>
+      <div class="cd">
+        <div class="tl">
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">6:00 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 10V2" />
+                <path d="m4.93 10.93 1.41 1.41" />
+                <path d="M2 18h2" />
+                <path d="M20 18h2" />
+                <path d="m19.07 10.93-1.41 1.41" />
+                <path d="M22 22H2" />
+                <path d="m8 6 4-4 4 4" />
+                <path d="M16 18a4 4 0 0 0-8 0" />
+              </svg> Wake Up</div>
+            <div class="tp">Sit on bed 1 minute. Set your intention for the day.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">6:10 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+              </svg> Warm Water</div>
+            <div class="tp">1 glass warm water with half lemon. Wakes up digestion gently.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">6:20 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
+                <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
+                <path d="M12.6 19.4A2 2 0 1 0 14 16H2" />
+              </svg> Pranayam &amp; Meditation</div>
+            <div class="tp">5 min Anulom Vilom + 5 min silent sitting. Chair is fine.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">6:40 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 20h16" />
+                <path d="M6 16l6-12 6 12" />
+                <path d="M8 12h8" />
+              </svg> Morning Stretching</div>
+            <div class="tp">10-15 min gentle stretches. Hold 15-20 seconds each. No bouncing.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">7:00 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M4 16v-2.38C4 11.5 2.97 9.5 3 8c.03-1.53.76-2.71 1.52-3.49A4.52 4.52 0 0 1 8 3c1.42 0 2.77.56 3.77 1.56L12 4.8l.23-.24C13.23 3.56 14.58 3 16 3a4.52 4.52 0 0 1 3.48 1.51C20.24 5.29 20.97 6.47 21 8c.03 1.5-1 3.5-1 5.62V16" />
+                <path d="M12 13V4.8" />
+                <path d="m2 20 2-4h4l2 4" />
+                <path d="m14 20 2-4h4l2 4" />
+              </svg> Morning Walk</div>
+            <div class="tp">15-20 min comfortable pace. Indoors or outdoors. Supportive shoes.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">7:30 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m4 4 2.5 2.5" />
+                <path d="M13.5 6.5a4.95 4.95 0 0 0-7 7" />
+                <path d="M15 5 5 15" />
+                <path d="M14 17v.01" />
+                <path d="M10 16v.01" />
+                <path d="M13 13v.01" />
+                <path d="M16 10v.01" />
+                <path d="M11 20v.01" />
+                <path d="M17 14v.01" />
+                <path d="M20 11v.01" />
+                <path d="M14 20v.01" />
+                <path d="M18 17v.01" />
+              </svg> Fresh Up</div>
+            <div class="tp">Bath with warm water — relaxes muscles beautifully.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">8:15 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                <line x1="6" x2="6" y1="1" y2="4" />
+                <line x1="10" x2="10" y1="1" y2="4" />
+                <line x1="14" x2="14" y1="1" y2="4" />
+              </svg> Breakfast</div>
+            <div class="tp">High-protein breakfast. Eat slowly, chew well. Never skip this!</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">8:45 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M4 16v-2.38C4 11.5 2.97 9.5 3 8c.03-1.53.76-2.71 1.52-3.49A4.52 4.52 0 0 1 8 3c1.42 0 2.77.56 3.77 1.56L12 4.8l.23-.24C13.23 3.56 14.58 3 16 3a4.52 4.52 0 0 1 3.48 1.51C20.24 5.29 20.97 6.47 21 8c.03 1.5-1 3.5-1 5.62V16" />
+                <path d="M12 13V4.8" />
+                <path d="m2 20 2-4h4l2 4" />
+                <path d="m14 20 2-4h4l2 4" />
+              </svg> Post-Meal Walk</div>
+            <div class="tp">5 min slow walk inside. Never lie down right after eating.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">10:30 AM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8c0-5-5-5-5-5s-5 0-5 5c0 4 3 6 5 9 2-3 5-5 5-9" />
+                <path d="M12 13V3" />
+              </svg> Snack</div>
+            <div class="tp">Nuts, fruit, or sprouts chaat. Stay hydrated.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">12:30 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                <path d="M7 2v20" />
+                <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+              </svg> Lunch</div>
+            <div class="tp">Main meal — dal, sabzi, roti/rice, salad. No TV or phone.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">3:30 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                <line x1="6" x2="6" y1="1" y2="4" />
+                <line x1="10" x2="10" y1="1" y2="4" />
+                <line x1="14" x2="14" y1="1" y2="4" />
+              </svg> Afternoon Tea</div>
+            <div class="tp">Light chai (less sugar) or herbal tea with makhana.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">4:30 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.4 14.4 9.6 9.6" />
+                <path
+                  d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+                <path d="m21.5 21.5-1.4-1.4" />
+                <path d="M3.9 3.9 2.5 2.5" />
+                <path
+                  d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+              </svg> Strength Exercises</div>
+            <div class="tp">15-20 min chair-supported. Very important for muscles and bones.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">5:30 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3H9" />
+                <path d="M7.1 16.9c-2.8-2.8-2.8-7.2 0-10M16.9 7.1c2.8 2.8 2.8 7.2 0 10" />
+                <path d="M12 12v9" />
+              </svg> Evening Yoga</div>
+            <div class="tp">15 min gentle yoga + 5 min Shavasana relaxation.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">6:00 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0" />
+                <path d="M7 16v6" />
+                <path d="M13 19v3" />
+                <path d="M14 10v.2a3 3 0 0 0 1.1 5.8H19a3 3 0 0 0 1-5.8V10a3 3 0 0 0-6 0" />
+                <path d="M17 16v6" />
+              </svg> Evening Walk</div>
+            <div class="tp">15 min outdoors. Fresh air helps mood and sleep.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">7:00 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                <path d="M7 2v20" />
+                <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+              </svg> Dinner</div>
+            <div class="tp">Light — khichdi, soup, roti. Eat 2.5-3 hrs before sleeping.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">7:30 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M4 16v-2.38C4 11.5 2.97 9.5 3 8c.03-1.53.76-2.71 1.52-3.49A4.52 4.52 0 0 1 8 3c1.42 0 2.77.56 3.77 1.56L12 4.8l.23-.24C13.23 3.56 14.58 3 16 3a4.52 4.52 0 0 1 3.48 1.51C20.24 5.29 20.97 6.47 21 8c.03 1.5-1 3.5-1 5.62V16" />
+                <path d="M12 13V4.8" />
+                <path d="m2 20 2-4h4l2 4" />
+                <path d="m14 20 2-4h4l2 4" />
+              </svg> Post-Dinner Walk</div>
+            <div class="tp">10 min — most important walk! Helps digestion and blood sugar.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">9:30 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                <path d="M12 18h.01" />
+              </svg> Screen Off</div>
+            <div class="tp">All screens away. Brush teeth. 5 min gratitude journaling.</div>
+          </div>
+          <div class="ti">
+            <div class="td"></div>
+            <div class="tt">10:00 PM</div>
+            <div class="th"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg> Sleep</div>
+            <div class="tp">7-8 hours. Back or side with pillow between knees. Room dark and cool.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cd cd-sage">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5" />
+          </svg> Habits &amp; Posture</div>
+        <p><strong>Morning:</strong> Warm water first, breathing exercises, stretch before walking, breakfast within 1.5
+          hrs.</p>
+        <p><strong>After Meals:</strong> Walk 5-10 min, never lie down within 30 min, sit upright, chew 20-30 times.</p>
+        <div class="dv"></div>
+        <p><strong>Avoid:</strong> Sitting over 45 min without moving, crossing legs, low chairs or floor sitting, heavy
+          lifting, flat chappals or heels, very soft mattress.</p>
+        <div class="dv"></div>
+        <p><strong>Sitting:</strong> Firm chair, feet flat, cushion behind lower back. Knees at 90 degrees or slightly
+          more.</p>
+        <p><strong>Standing:</strong> Weight on both feet. Don't lock knees. Shift weight every few minutes.</p>
+        <p><strong>Sleeping:</strong> Medium-firm mattress. Back with pillow under knees, or side with pillow between
+          knees.</p>
+      </div>
+    </div>
+
+    <!-- ═══ EXERCISE ═══ -->
+    <div class="pg" id="pg-exercise">
+      <div class="st"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.4 14.4 9.6 9.6" />
+          <path
+            d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+          <path d="m21.5 21.5-1.4-1.4" />
+          <path d="M3.9 3.9 2.5 2.5" />
+          <path
+            d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+        </svg> Exercise &amp; Movement</div>
+      <p style="margin-bottom:6px">4 phases — start Phase 1, move up when comfortable (usually 3-4 weeks).</p>
+      <div class="al al-r"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+          <path d="M12 9v4" />
+          <path d="M12 17h.01" />
+        </svg> <span>Never do deep squats, jumping, running, or twisting at knees. Protect your prosthetic knees.</span>
+      </div>
+
+      <div class="pts" id="xt"><button class="pt on" onclick="sp(0)">Phase 1 (Wk 1-4)</button><button class="pt"
+          onclick="sp(1)">Phase 2 (Wk 5-8)</button><button class="pt" onclick="sp(2)">Phase 3 (Wk 9-16)</button><button
+          class="pt" onclick="sp(3)">Phase 4 (Wk 17+)</button></div>
+
+      <!-- Phase 1 -->
+      <div class="pc on" id="xp0">
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20h16" />
+              <path d="M6 16l6-12 6 12" />
+              <path d="M8 12h8" />
+            </svg> Stretching (10 min)</div>
+          <p style="margin-bottom:10px">Every morning. Hold 15 sec. Breathe normally. Never bounce.</p>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg> Neck Rolls</h4>
+            <p>Sit tall. Slowly roll head — ear to shoulder, chin to chest, other ear, look up.</p><span
+              class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 5 each side</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg> Shoulder Shrugs</h4>
+            <p>Lift shoulders to ears, hold 3 sec, drop. Releases neck and upper back tension.</p><span
+              class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 10 times</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg> Seated Side Bend</h4>
+            <p>Raise right arm overhead, lean gently left. Feel the stretch. Switch sides.</p><span class="ei-r"><svg
+                xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 15 sec each</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg> Ankle Circles</h4>
+            <p>Lift foot, rotate ankle — 10 clockwise, 10 counter. Switch. Keeps ankles flexible.</p><span
+              class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 10 each way</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg> Hamstring Stretch</h4>
+            <p>Chair edge, extend one leg, heel on floor. Lean from hips gently.</p><span class="ei-r"><svg
+                xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 15 sec each leg</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg> Chest Opener</h4>
+            <p>Clasp hands behind back, squeeze shoulder blades, lift slightly.</p><span class="ei-r"><svg
+                xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 15 sec x 3</span>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.4 14.4 9.6 9.6" />
+              <path
+                d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+              <path d="m21.5 21.5-1.4-1.4" />
+              <path d="M3.9 3.9 2.5 2.5" />
+              <path
+                d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+            </svg> Strength (10 min)</div>
+          <p style="margin-bottom:10px">Sturdy chair for support. Go slowly. Stop if pain.</p>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Chair Stand-Ups</h4>
+            <p><strong>Why:</strong> Leg strength without deep squatting. Slowly sit then stand. Use armrests if needed.
+            </p><span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 5 x 2 sets</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Seated Leg Lifts</h4>
+            <p><strong>Why:</strong> Strengthens thighs supporting your knee. Extend one leg, hold 5 sec, lower slowly.
+            </p><span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 8 each x 2</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Wall Push-Ups</h4>
+            <p><strong>Why:</strong> Arm and chest strength without floor. Arm's length from wall, lean in, push back.
+            </p><span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 8 x 2 sets</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Calf Raises</h4>
+            <p><strong>Why:</strong> Calves + balance + walking. Hold chair, rise on toes, hold 2 sec, lower.</p><span
+              class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 10 x 2 sets</span>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M4 16v-2.38C4 11.5 2.97 9.5 3 8c.03-1.53.76-2.71 1.52-3.49A4.52 4.52 0 0 1 8 3c1.42 0 2.77.56 3.77 1.56L12 4.8l.23-.24C13.23 3.56 14.58 3 16 3a4.52 4.52 0 0 1 3.48 1.51C20.24 5.29 20.97 6.47 21 8c.03 1.5-1 3.5-1 5.62V16" />
+              <path d="M12 13V4.8" />
+              <path d="m2 20 2-4h4l2 4" />
+              <path d="m14 20 2-4h4l2 4" />
+            </svg> Walking — Phase 1</div>
+          <p style="margin-bottom:10px">Start easy. Talk-pace is the right speed.</p>
+          <div class="wb"><span class="wb-l">Wk 1</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:25%">10 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 2</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:30%">12 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 3</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:37%">15 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 4</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:45%">18 min</div>
+            </div>
+          </div>
+          <div class="al al-a"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+            </svg> Walk indoors on rainy/hot days. Every step counts!</div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="pc" id="xp1">
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.4 14.4 9.6 9.6" />
+              <path
+                d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+              <path d="m21.5 21.5-1.4-1.4" />
+              <path d="M3.9 3.9 2.5 2.5" />
+              <path
+                d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+            </svg> Strength (15 min)</div>
+          <p style="margin-bottom:10px">Continue Phase 1 with more reps + add:</p>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Side Leg Lifts</h4>
+            <p><strong>Why:</strong> Outer hip strength — essential for balance. Hold chair, lift leg sideways ~30 cm.
+              Stay straight.</p><span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 10 each x 2</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Back Leg Lifts</h4>
+            <p><strong>Why:</strong> Glutes and lower back. Hold chair, lift leg behind (don't arch back). Hold 3 sec.
+            </p><span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 8 each x 2</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Seated Arm Raises</h4>
+            <p><strong>Why:</strong> Shoulders. Hold 500ml bottles, raise to shoulder, hold 2 sec, lower slowly.</p>
+            <span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 10 x 2 sets</span>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M4 16v-2.38C4 11.5 2.97 9.5 3 8c.03-1.53.76-2.71 1.52-3.49A4.52 4.52 0 0 1 8 3c1.42 0 2.77.56 3.77 1.56L12 4.8l.23-.24C13.23 3.56 14.58 3 16 3a4.52 4.52 0 0 1 3.48 1.51C20.24 5.29 20.97 6.47 21 8c.03 1.5-1 3.5-1 5.62V16" />
+              <path d="M12 13V4.8" />
+              <path d="m2 20 2-4h4l2 4" />
+              <path d="m14 20 2-4h4l2 4" />
+            </svg> Walking — Phase 2</div>
+          <div class="wb"><span class="wb-l">Wk 5</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:50%">20 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 6</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:55%">22 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 7</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:62%">25 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 8</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:70%">28 min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="pc" id="xp2">
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.4 14.4 9.6 9.6" />
+              <path
+                d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+              <path d="m21.5 21.5-1.4-1.4" />
+              <path d="M3.9 3.9 2.5 2.5" />
+              <path
+                d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+            </svg> Strength (20 min)</div>
+          <p style="margin-bottom:10px">Continue all previous + add:</p>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Mini Squats</h4>
+            <p><strong>Why:</strong> Leg strength safely. Behind chair, bend only 30-40 degrees. Never below 90.</p>
+            <span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 10 x 3 sets</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Bicep Curls (1 kg)</h4>
+            <p><strong>Why:</strong> Arm strength for daily activities. Curl to shoulder, lower slowly, elbows close.
+            </p><span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 12 x 2 sets</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Core Tightening</h4>
+            <p><strong>Why:</strong> Core supports spine and posture. Pull belly to spine, hold 10 sec, breathe
+              normally.</p><span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 10 sec x 8</span>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M4 16v-2.38C4 11.5 2.97 9.5 3 8c.03-1.53.76-2.71 1.52-3.49A4.52 4.52 0 0 1 8 3c1.42 0 2.77.56 3.77 1.56L12 4.8l.23-.24C13.23 3.56 14.58 3 16 3a4.52 4.52 0 0 1 3.48 1.51C20.24 5.29 20.97 6.47 21 8c.03 1.5-1 3.5-1 5.62V16" />
+              <path d="M12 13V4.8" />
+              <path d="m2 20 2-4h4l2 4" />
+              <path d="m14 20 2-4h4l2 4" />
+            </svg> Walking — Phase 3</div>
+          <div class="wb"><span class="wb-l">Wk 9</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:75%">30 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 12</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:85%">34 min</div>
+            </div>
+          </div>
+          <div class="wb"><span class="wb-l">Wk 16</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:95%">38 min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="pc" id="xp3">
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+              <path d="M4 22h16" />
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+            </svg> Maintenance (Wk 17+)</div>
+          <p style="margin-bottom:10px">Your body is much stronger now! Upgrades:</p>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Step-Ups (Low Step)</h4>
+            <p><strong>Why:</strong> Stair independence. 10-15 cm step, hold railing, step up then down slowly.</p><span
+              class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 5 each x 2</span>
+          </div>
+          <div class="ei">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg> Balance Hold</h4>
+            <p><strong>Why:</strong> Better balance = fewer falls. Near wall, lift foot 2 inches. Build to 30 sec.</p>
+            <span class="ei-r"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m17 2 4 4-4 4" />
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="m7 22-4-4 4-4" />
+                <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg> 15 sec each x 3</span>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M4 16v-2.38C4 11.5 2.97 9.5 3 8c.03-1.53.76-2.71 1.52-3.49A4.52 4.52 0 0 1 8 3c1.42 0 2.77.56 3.77 1.56L12 4.8l.23-.24C13.23 3.56 14.58 3 16 3a4.52 4.52 0 0 1 3.48 1.51C20.24 5.29 20.97 6.47 21 8c.03 1.5-1 3.5-1 5.62V16" />
+              <path d="M12 13V4.8" />
+              <path d="m2 20 2-4h4l2 4" />
+              <path d="m14 20 2-4h4l2 4" />
+            </svg> Walking — Phase 4</div>
+          <div class="wb"><span class="wb-l">17+</span>
+            <div class="wb-t">
+              <div class="wb-f" style="width:100%">40-45 min</div>
+            </div>
+          </div>
+          <div class="al al-g"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5.8 11.3 2 22l10.7-3.79" />
+              <path d="M4 3h.01" />
+              <path d="M22 8h.01" />
+              <path d="M15 2h.01" />
+              <path d="M22 20h.01" />
+              <path
+                d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" />
+              <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17" />
+              <path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7" />
+              <path
+                d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" />
+            </svg> You should now walk freely, climb stairs slowly, and do daily activities without support!</div>
+        </div>
+      </div>
+
+      <!-- YOGA SECTION -->
+      <div style="margin-top:10px">
+        <div class="st"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3H9" />
+            <path d="M7.1 16.9c-2.8-2.8-2.8-7.2 0-10M16.9 7.1c2.8 2.8 2.8 7.2 0 10" />
+            <path d="M12 12v9" />
+          </svg> Yoga, Pranayam &amp; Meditation</div>
+        <p style="margin-bottom:14px">Ancient practices for pain relief, calm mind, and flexibility. All knee-safe.</p>
+
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
+              <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
+              <path d="M12.6 19.4A2 2 0 1 0 14 16H2" />
+            </svg> Pranayam (10 min daily)</div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
+                <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
+                <path d="M12.6 19.4A2 2 0 1 0 14 16H2" />
+              </svg> Anulom Vilom</h4>
+            <p><strong>Why:</strong> Balances brain, reduces anxiety, improves lungs.</p>
+            <p><strong>How:</strong> Close right nostril, breathe in left (4 counts). Close left, out right (8 counts).
+              In right, close, out left = 1 round.</p><span class="yi-d"><svg xmlns="http://www.w3.org/2000/svg"
+                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 10 rounds (5 min)</span>
+          </div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 10v3" />
+                <path d="M6 6v11" />
+                <path d="M10 3v18" />
+                <path d="M14 8v7" />
+                <path d="M18 5v13" />
+                <path d="M22 10v3" />
+              </svg> Bhramari (Bee Breathing)</h4>
+            <p><strong>Why:</strong> Calms nerves instantly, relieves headaches.</p>
+            <p><strong>How:</strong> Close eyes, fingers on ear flaps. Deep in. Exhale with humming (mmmm). Feel the
+              vibration.</p><span class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 5 rounds (3 min)</span>
+          </div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+                <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+                <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+              </svg> Deep Belly Breathing</h4>
+            <p><strong>Why:</strong> Activates relaxation, reduces pain, helps digestion.</p>
+            <p><strong>How:</strong> Hand on chest, hand on belly. In — belly rises. Out — belly falls. Chest stays
+              still.</p><span class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 10 breaths (2 min)</span>
+          </div>
+        </div>
+
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3H9" />
+              <path d="M7.1 16.9c-2.8-2.8-2.8-7.2 0-10M16.9 7.1c2.8 2.8 2.8 7.2 0 10" />
+              <path d="M12 12v9" />
+            </svg> Yoga Asanas</div>
+          <p style="margin-bottom:10px">Hold 5-8 breaths. Never force. Chair for support.</p>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+              </svg> Tadasana (Mountain)</h4>
+            <p>Stand feet hip-width, weight equal, arms at sides, palms forward. Lift through crown. Breathe.</p><span
+              class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 30 seconds</span>
+          </div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16" />
+                <path d="M3 21h18" />
+                <path d="M12 7v5" />
+                <path d="M10 9h4" />
+              </svg> Modified Chair Pose</h4>
+            <p>Lower as if sitting but stop midway. Arms forward for balance. Rise slowly. Knees NOT past toes.</p><span
+              class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 5 sec x 5</span>
+          </div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg> Cat-Cow (Seated)</h4>
+            <p>Hands on knees. Inhale: arch, look up. Exhale: round, tuck chin. Slowly with breath.</p><span
+              class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 8 rounds</span>
+          </div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg> Legs Up (Modified)</h4>
+            <p>Lie near wall, legs resting up. Arms at sides. Close eyes. Just breathe and relax.</p><span
+              class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 5 minutes</span>
+          </div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" />
+                <path d="M2 20h20" />
+                <path d="M14 12v.01" />
+              </svg> Shavasana</h4>
+            <p>Lie on back, legs apart, palms up. Relax each body part toes to head. Let go of all tension.</p><span
+              class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 5 minutes</span>
+          </div>
+        </div>
+
+        <div class="cd">
+          <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+              <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+              <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+              <path d="M12 18v6" />
+            </svg> Meditation (5-10 min daily)</div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg> Body Scan</h4>
+            <p><strong>For:</strong> Pain relief, relaxation, sleep. Focus from toes upward, saying "relax" at each
+              area. 3 deep breaths to start and finish.</p><span class="yi-d"><svg xmlns="http://www.w3.org/2000/svg"
+                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 10 min</span>
+          </div>
+          <div class="yi">
+            <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg> Gratitude Meditation</h4>
+            <p><strong>For:</strong> Positive mindset. Think of 3 things you are thankful for. Feel it. Smile gently.
+              Sit 5 min.</p><span class="yi-d"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg> 5 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ FOOD ═══ -->
+    <div class="pg" id="pg-food">
+      <div class="st"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+          <path d="M7 2v20" />
+          <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+        </svg> Nutrition &amp; Meals</div>
+      <p style="margin-bottom:14px">Jain vegetarian — no root vegetables, no meat, no eggs. <strong>Daily: ~1,350
+          cal</strong></p>
+
+      <div class="cd cd-sage">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5" />
+          </svg> Foods to Eat</div>
+        <ul>
+          <li><strong>Protein:</strong> Paneer, tofu, curd, buttermilk, all dals, sprouts, soybean, milk</li>
+          <li><strong>Grains:</strong> Wheat roti, bajra, jowar, brown rice, oats, quinoa, poha</li>
+          <li><strong>Veggies:</strong> Lauki, turai, kaddu, cabbage, capsicum, beans, bhindi, brinjal, palak, methi,
+            peas</li>
+          <li><strong>Fruits:</strong> Apple, papaya, guava, pear, berries, orange, mosambi, banana (1/day)</li>
+          <li><strong>Fats:</strong> Almonds, walnuts, flax seeds, chia seeds, ghee (1-2 tsp/day)</li>
+          <li><strong>Anti-inflammatory:</strong> Turmeric, ginger, ajwain, jeera, hing, black pepper</li>
+          <li><strong>Calcium:</strong> Milk, curd, paneer, sesame seeds, ragi, almonds</li>
+        </ul>
+      </div>
+
+      <div class="cd">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg> Foods to Avoid</div>
+        <ul>
+          <li>Root veggies: onion, garlic, potato, carrot, beetroot, radish</li>
+          <li>Refined sugar — use jaggery/dates</li>
+          <li>Maida: naan, bread, pastries, samosa</li>
+          <li>Fried foods, processed/packaged foods</li>
+          <li>Sodas, packaged juices</li>
+          <li>Excessive salt</li>
+        </ul>
+      </div>
+
+      <div class="cd cd-sky">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+          </svg> Hydration</div>
+        <p>8-10 glasses daily (2-2.5L). Keeps joints lubricated and reduces stiffness.</p>
+        <ul>
+          <li>Morning: warm water + lemon</li>
+          <li>30 min before meals: 1 glass</li>
+          <li>Between meals: sip regularly</li>
+          <li>After exercise: 1-2 glasses</li>
+          <li>Evening: herbal tea (tulsi, ginger, jeera)</li>
+          <li>Avoid large amounts during meals</li>
+        </ul>
+      </div>
+
+      <div class="st" style="margin-top:10px"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+          <line x1="16" x2="16" y1="2" y2="6" />
+          <line x1="8" x2="8" y1="2" y2="6" />
+          <line x1="3" x2="21" y1="10" y2="10" />
+        </svg> Weekly Meals</div>
+      <div class="pts" id="mt"><button class="dt on" onclick="sd(0)">Mon</button><button class="dt"
+          onclick="sd(1)">Tue</button><button class="dt" onclick="sd(2)">Wed</button><button class="dt"
+          onclick="sd(3)">Thu</button><button class="dt" onclick="sd(4)">Fri</button><button class="dt"
+          onclick="sd(5)">Sat</button><button class="dt" onclick="sd(6)">Sun</button></div>
+      <div id="mb">
+        <div class="pc on" id="m0">
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 10V2" />
+                <path d="m4.93 10.93 1.41 1.41" />
+                <path d="M2 18h2" />
+                <path d="M20 18h2" />
+                <path d="m19.07 10.93-1.41 1.41" />
+                <path d="M22 22H2" />
+                <path d="m8 6 4-4 4 4" />
+                <path d="M16 18a4 4 0 0 0-8 0" />
+              </svg> Breakfast</div>
+            <div class="mi-n">Moong Dal Cheela (2) + Green Chutney + Curd</div>
+            <div class="mi-c">~320 cal / 18g protein</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8c0-5-5-5-5-5s-5 0-5 5c0 4 3 6 5 9 2-3 5-5 5-9" />
+                <path d="M12 13V3" />
+              </svg> Mid-Morning</div>
+            <div class="mi-n">1 Apple + 8 Almonds (soaked)</div>
+            <div class="mi-c">~150 cal / 4g protein</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                <path d="M7 2v20" />
+                <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+              </svg> Lunch</div>
+            <div class="mi-n">2 Roti + Lauki Sabzi + Toor Dal + Salad</div>
+            <div class="mi-c">~420 cal / 15g protein</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              </svg> Snack</div>
+            <div class="mi-n">Roasted Makhana + Green Tea</div>
+            <div class="mi-c">~100 cal / 3g protein</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg> Dinner</div>
+            <div class="mi-n">1 Roti + Paneer Bhurji + Lauki Soup</div>
+            <div class="mi-c">~360 cal / 20g protein</div>
+          </div>
+          <div class="al al-g"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="16" x="4" y="4" rx="2" />
+              <path d="m15 9-6 6" />
+              <path d="m9 9 6 6" />
+            </svg> Total: ~1,350 cal / ~60g protein</div>
+        </div>
+        <div class="pc" id="m1">
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 10V2" />
+                <path d="M16 18a4 4 0 0 0-8 0" />
+                <path d="M22 22H2" />
+              </svg> Breakfast</div>
+            <div class="mi-n">Vegetable Poha + Buttermilk</div>
+            <div class="mi-c">~300 cal / 10g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8c0-5-5-5-5-5s-5 0-5 5c0 4 3 6 5 9 2-3 5-5 5-9" />
+              </svg> Mid-Morning</div>
+            <div class="mi-n">Sprouts Chaat with lemon + cumin</div>
+            <div class="mi-c">~130 cal / 9g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                <path d="M7 2v20" />
+              </svg> Lunch</div>
+            <div class="mi-n">Bajra Roti (2) + Palak Paneer + Moong Dal + Salad</div>
+            <div class="mi-c">~440 cal / 22g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              </svg> Snack</div>
+            <div class="mi-n">1 Banana + 5 Walnuts</div>
+            <div class="mi-c">~160 cal / 4g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg> Dinner</div>
+            <div class="mi-n">Khichdi + Kadhi + Cucumber Raita</div>
+            <div class="mi-c">~320 cal / 15g</div>
+          </div>
+          <div class="al al-g"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.2" /></svg> Total: ~1,350 cal / ~60g protein</div>
+        </div>
+        <div class="pc" id="m2">
+          <div class="mi">
+            <div class="mi-t"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 10V2" />
+                <path d="M16 18a4 4 0 0 0-8 0" />
+                <path d="M22 22H2" />
+              </svg> Breakfast</div>
+            <div class="mi-n">Oats Upma + Low-Fat Milk</div>
+            <div class="mi-c">~310 cal / 14g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Mid-Morning</div>
+            <div class="mi-n">Guava + Pumpkin Seeds</div>
+            <div class="mi-c">~120 cal / 5g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Lunch</div>
+            <div class="mi-n">2 Roti + Turai Sabzi + Chana Dal + Curd</div>
+            <div class="mi-c">~430 cal / 18g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Snack</div>
+            <div class="mi-n">Dhokla (2 pcs) + Green Chutney</div>
+            <div class="mi-c">~140 cal / 6g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Dinner</div>
+            <div class="mi-n">Jowar Roti + Mixed Veg + Dal Soup</div>
+            <div class="mi-c">~350 cal / 14g</div>
+          </div>
+          <div class="al al-g">Total: ~1,350 cal / ~57g protein</div>
+        </div>
+        <div class="pc" id="m3">
+          <div class="mi">
+            <div class="mi-t">Breakfast</div>
+            <div class="mi-n">Besan Cheela (2) + Tomato Chutney + Curd</div>
+            <div class="mi-c">~330 cal / 16g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Mid-Morning</div>
+            <div class="mi-n">Papaya Bowl + Flax Seeds</div>
+            <div class="mi-c">~120 cal / 3g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Lunch</div>
+            <div class="mi-n">2 Roti + Bhindi Sabzi + Masoor Dal + Salad</div>
+            <div class="mi-c">~420 cal / 16g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Snack</div>
+            <div class="mi-n">Roasted Chana Jor Garam</div>
+            <div class="mi-c">~130 cal / 7g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Dinner</div>
+            <div class="mi-n">Grilled Paneer Tikka + Salad + 1 Roti</div>
+            <div class="mi-c">~350 cal / 22g</div>
+          </div>
+          <div class="al al-g">Total: ~1,350 cal / ~64g protein</div>
+        </div>
+        <div class="pc" id="m4">
+          <div class="mi">
+            <div class="mi-t">Breakfast</div>
+            <div class="mi-n">Idli (3) + Sambar + Coconut Chutney</div>
+            <div class="mi-c">~320 cal / 12g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Mid-Morning</div>
+            <div class="mi-n">Mixed Dry Fruits (1 handful)</div>
+            <div class="mi-c">~150 cal / 5g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Lunch</div>
+            <div class="mi-n">Brown Rice + Rajma + Raita + Salad</div>
+            <div class="mi-c">~430 cal / 17g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Snack</div>
+            <div class="mi-n">Makhana + Chai (less sugar)</div>
+            <div class="mi-c">~110 cal / 3g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Dinner</div>
+            <div class="mi-n">Moong Soup + Stuffed Capsicum + 1 Roti</div>
+            <div class="mi-c">~340 cal / 18g</div>
+          </div>
+          <div class="al al-g">Total: ~1,350 cal / ~55g protein</div>
+        </div>
+        <div class="pc" id="m5">
+          <div class="mi">
+            <div class="mi-t">Breakfast</div>
+            <div class="mi-n">Ragi Dosa (2) + Mint Chutney + Milk</div>
+            <div class="mi-c">~330 cal / 14g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Mid-Morning</div>
+            <div class="mi-n">Orange + Chia Seed Water</div>
+            <div class="mi-c">~100 cal / 3g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Lunch</div>
+            <div class="mi-n">2 Roti + Kaddu Sabzi + Moong Dal + Buttermilk</div>
+            <div class="mi-c">~410 cal / 16g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Snack</div>
+            <div class="mi-n">Fruit Chaat (apple, guava, pomegranate)</div>
+            <div class="mi-c">~130 cal / 2g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Dinner</div>
+            <div class="mi-n">Tofu Bhurji + Methi Roti + Lauki Soup</div>
+            <div class="mi-c">~380 cal / 22g</div>
+          </div>
+          <div class="al al-g">Total: ~1,350 cal / ~57g protein</div>
+        </div>
+        <div class="pc" id="m6">
+          <div class="mi">
+            <div class="mi-t">Breakfast</div>
+            <div class="mi-n">Paneer Paratha (1) + Curd + Chutney</div>
+            <div class="mi-c">~350 cal / 18g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Mid-Morning</div>
+            <div class="mi-n">Banana Smoothie + Peanut Butter + Chia</div>
+            <div class="mi-c">~200 cal / 10g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Lunch</div>
+            <div class="mi-n">Chole (hing-jeera) + Baked Bhatura + Salad</div>
+            <div class="mi-c">~420 cal / 16g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Snack</div>
+            <div class="mi-n">Til Chikki (small) + Herbal Tea</div>
+            <div class="mi-c">~100 cal / 3g</div>
+          </div>
+          <div class="mi">
+            <div class="mi-t">Dinner</div>
+            <div class="mi-n">Vegetable Daliya + Raita</div>
+            <div class="mi-c">~280 cal / 10g</div>
+          </div>
+          <div class="al al-g">Total: ~1,350 cal / ~57g protein (Sunday treat!)</div>
+        </div>
+      </div>
+      <div class="cd" style="margin-top:10px">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="16" height="16" x="4" y="4" rx="2" />
+            <path d="m15 9-6 6" />
+            <path d="m9 9 6 6" />
+          </svg> Quick Calorie Guide</div>
+        <p>1 roti ~80 cal / 1 cup rice ~200 / 1 cup dal ~120 / 100g paneer ~260 / 1 cup curd ~60 / 1 tbsp ghee ~45</p>
+        <p><strong>Don't stress about exact numbers.</strong> Follow this plan and you'll be close. Focus on eating
+          slowly, stopping when 80% full.</p>
+      </div>
+    </div>
+
+    <!-- ═══ TRACK ═══ -->
+    <div class="pg" id="pg-track">
+      <div class="st"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+          <path d="M7 16l4-8 4 5 4-9" />
+        </svg> Progress Tracker</div>
+      <p style="margin-bottom:14px">Compare with yourself last week — not with anyone else.</p>
+      <div class="cd">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+            <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+            <path d="M7 21h10" />
+            <path d="M12 3v18" />
+            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+          </svg> Weight Log</div>
+        <div class="tr"><label>Today's Weight (kg)</label><input type="number" id="wi" step="0.1" placeholder="78.5">
+        </div>
+        <button class="btn btn-s" onclick="sW()">Save</button>
+        <table class="ht" style="margin-top:14px">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Weight</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+          <tbody id="wb"></tbody>
+        </table>
+      </div>
+
+      <div class="cd">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 18H3" />
+            <path d="m15 18 2 2 4-4" />
+            <path d="M16 12H3" />
+            <path d="M16 6H3" />
+          </svg> Today's Exercise</div>
+        <div id="ec">
+          <div class="ck">
+            <div class="cb" onclick="tE(this,0)"></div><span class="cl">Morning Stretching</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="tE(this,1)"></div><span class="cl">Mobility Work</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="tE(this,2)"></div><span class="cl">Strength Training</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="tE(this,3)"></div><span class="cl">Morning Walk</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="tE(this,4)"></div><span class="cl">Evening Walk</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="tE(this,5)"></div><span class="cl">Pranayam</span>
+          </div>
+          <div class="ck">
+            <div class="cb" onclick="tE(this,6)"></div><span class="cl">Yoga / Meditation</span>
+          </div>
+        </div>
+        <p style="margin-top:10px;font-size:.82rem;text-align:center;color:var(--t3)" id="ep">0 of 7 completed</p>
+      </div>
+
+      <div class="cd">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+            <line x1="9" x2="9.01" y1="9" y2="9" />
+            <line x1="15" x2="15.01" y1="9" y2="9" />
+          </svg> Mood &amp; Pain</div>
+        <p style="font-size:.82rem;margin-bottom:10px">1 (worst) to 5 (best). Tap to select.</p>
+        <label style="font-size:.88rem;font-weight:600;display:block;margin-bottom:6px">Mood</label>
+        <div class="sr" id="sm"><button class="sb" onclick="sc('m',1)">1</button><button class="sb"
+            onclick="sc('m',2)">2</button><button class="sb" onclick="sc('m',3)">3</button><button class="sb"
+            onclick="sc('m',4)">4</button><button class="sb" onclick="sc('m',5)">5</button></div>
+        <label style="font-size:.88rem;font-weight:600;display:block;margin-bottom:6px">Pain (1=painful, 5=no
+          pain)</label>
+        <div class="sr" id="sp2"><button class="sb" onclick="sc('p',1)">1</button><button class="sb"
+            onclick="sc('p',2)">2</button><button class="sb" onclick="sc('p',3)">3</button><button class="sb"
+            onclick="sc('p',4)">4</button><button class="sb" onclick="sc('p',5)">5</button></div>
+        <label style="font-size:.88rem;font-weight:600;display:block;margin-bottom:6px">Energy</label>
+        <div class="sr" id="se"><button class="sb" onclick="sc('e',1)">1</button><button class="sb"
+            onclick="sc('e',2)">2</button><button class="sb" onclick="sc('e',3)">3</button><button class="sb"
+            onclick="sc('e',4)">4</button><button class="sb" onclick="sc('e',5)">5</button></div>
+        <button class="btn" onclick="sM()">Save Log</button>
+      </div>
+
+      <div class="cd">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+            <path d="M9 18h6" />
+            <path d="M10 22h4" />
+          </svg> Calorie Log</div>
+        <div class="tr"><label>Breakfast</label><input type="number" id="cb" placeholder="320"></div>
+        <div class="tr"><label>Lunch</label><input type="number" id="cl" placeholder="420"></div>
+        <div class="tr"><label>Dinner</label><input type="number" id="cdn" placeholder="350"></div>
+        <div class="tr"><label>Snacks</label><input type="number" id="cs" placeholder="260"></div>
+        <p style="font-size:.95rem;font-weight:700;text-align:center;margin:8px 0" id="ct">Total: 0 / 1,350</p>
+        <button class="btn btn-o" onclick="sC()">Save Calories</button>
+      </div>
+
+      <div class="cd">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+            <path d="M12 7v5l4 2" />
+          </svg> History</div>
+        <table class="ht">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Mood</th>
+              <th>Pain</th>
+              <th>Cal</th>
+            </tr>
+          </thead>
+          <tbody id="hb"></tbody>
+        </table>
+        <p style="font-size:.78rem;text-align:center;margin-top:8px;color:var(--t3)" id="nh">Start logging to see
+          history</p>
+      </div>
+    </div>
+
+    <!-- ═══ TIPS ═══ -->
+    <div class="pg" id="pg-tips">
+      <div class="st"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+          <path d="M5 3v4" />
+          <path d="M19 17v4" />
+          <path d="M3 5h4" />
+          <path d="M17 19h4" />
+        </svg> Tips &amp; Motivation</div>
+
+      <div class="cd cd-rose">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 13V2l8 4-8 4" />
+            <path d="M20.55 10.23A9 9 0 1 1 8 4.94" />
+            <path d="M8 10a5 5 0 1 0 8.9 2.02" />
+          </svg> Slow Progress = Best Progress</div>
+        <p>Muscles take 4-6 weeks to strengthen. Lasting weight loss: 0.25-0.5 kg/week. Joints need gentle, repeated
+          movement.</p>
+        <p>A plant doesn't grow faster if you pull it. It grows when you water it consistently.</p>
+        <p><strong>Promise yourself 15 minutes a day. In 3 months, you'll be a different person.</strong></p>
+      </div>
+
+      <div class="cd">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
+          </svg> How Your Body Heals</div>
+        <p>Prosthetic knees last 15-20 years. Bones have grown around implants. But <strong>muscles weakened</strong>
+          from less movement — that's the stiffness. These exercises target those muscles. As they strengthen: walking
+          improves, stiffness drops, confidence rises, pain reduces.</p>
+      </div>
+
+      <div class="cd cd-sage">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 17 3.5s1.4 2.1 2.3 5.1A7 7 0 0 1 11 20Z" />
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+          </svg> Anti-Inflammatory Foods</div>
+        <ul>
+          <li><strong>Haldi:</strong> Best anti-inflammatory spice. With black pepper for absorption.</li>
+          <li><strong>Adrak:</strong> In tea, soups. Reduces muscle pain.</li>
+          <li><strong>Walnuts &amp; Flax:</strong> Omega-3 that fights inflammation. Daily.</li>
+          <li><strong>Green Leafy Veggies:</strong> Palak, methi. Rich in antioxidants.</li>
+          <li><strong>Amla:</strong> Vitamin C powerhouse. 1 daily.</li>
+        </ul>
+      </div>
+
+      <div class="cd cd-plum">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+          </svg> Joint Care — Artificial Knees</div>
+        <ul>
+          <li><strong>Move daily</strong> — stiffness comes from inactivity</li>
+          <li><strong>1 kg lost = 4 kg less</strong> pressure on knees</li>
+          <li><strong>No floor sitting</strong> cross-legged</li>
+          <li><strong>Stairs:</strong> Handrails. Strong leg up, weak leg down</li>
+          <li><strong>Good shoes:</strong> Cushioned, arch support</li>
+          <li><strong>Ice if swollen</strong> after exercise (10 min)</li>
+          <li><strong>Stand every 45 min</strong></li>
+        </ul>
+      </div>
+
+      <div class="cd" style="background:linear-gradient(135deg,var(--rose-soft),var(--plum-soft))">
+        <div class="h3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+            <path d="M4 22h16" />
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+          </svg> Healthy 60-Year-Olds</div>
+        <p>You're 49. Next 10 years = your power decade:</p>
+        <ul>
+          <li><strong>Move daily</strong> — walking, stretching, yoga</li>
+          <li><strong>Eat real food</strong> — dal, roti, sabzi</li>
+          <li><strong>Sleep 7-8 hrs</strong> same time nightly</li>
+          <li><strong>Stay social</strong> — family, laughter</li>
+          <li><strong>Manage stress</strong> — meditation, pranayam</li>
+          <li><strong>Preventive care</strong> — calcium, vitamins, checkups</li>
+        </ul>
+        <p style="font-weight:700;color:var(--rose);margin-top:12px">You're already doing this. Keep going!</p>
+      </div>
+
+      <div class="qc">
+        <p style="font-family:var(--f-display);font-style:italic">"A mother who takes care of her health gives her
+          family the greatest gift — her presence."</p>
+      </div>
+    </div>
+
+  </div><!-- END MAIN -->
+
+  <!-- TAB BAR -->
+  <div class="tab-wrap">
+    <div class="tab-bar">
+      <button class="tb on" onclick="go('home')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+          <path
+            d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg><span>Home</span></button>
+      <button class="tb" onclick="go('routine')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg><span>Routine</span></button>
+      <button class="tb" onclick="go('exercise')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M14.4 14.4 9.6 9.6" />
+          <path
+            d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" />
+          <path d="m21.5 21.5-1.4-1.4" />
+          <path d="M3.9 3.9 2.5 2.5" />
+          <path
+            d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />
+        </svg><span>Exercise</span></button>
+      <button class="tb" onclick="go('food')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+          <path d="M7 2v20" />
+          <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+        </svg><span>Food</span></button>
+      <button class="tb" onclick="go('track')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+          <path d="M7 16l4-8 4 5 4-9" />
+        </svg><span>Track</span></button>
+      <button class="tb" onclick="go('tips')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path
+            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+        </svg><span>Tips</span></button>
+    </div>
+  </div>
+
+  <!-- INSTALL -->
+  <div class="inst" id="ib">
+    <p>Install this app for quick access</p><button class="btn btn-s" onclick="iA()">Install</button><button class="cls"
+      onclick="document.getElementById('ib').style.display='none'"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg></button>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="to"></div>
+
+  <script>
+    // NAV
+    function go(n) {
+      document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
+      document.querySelectorAll('.tb').forEach(t => t.classList.remove('on'));
+      document.getElementById('pg-' + n).classList.add('on');
+      document.querySelector(`.tb[onclick="go('${n}')"]`).classList.add('on');
+      document.getElementById('ms').scrollTop = 0;
+    }
+
+    // THEME
+    function togTheme() {
+      const h = document.documentElement, d = h.dataset.theme === 'dark';
+      h.dataset.theme = d ? 'light' : 'dark';
+      document.getElementById('ico-sun').style.display = d ? '' : 'none';
+      document.getElementById('ico-moon').style.display = d ? 'none' : '';
+      document.querySelector('meta[name="theme-color"]').content = d ? '#FDF2F8' : '#0A0610';
+      localStorage.setItem('th', d ? 'light' : 'dark');
+    }
+    (function () { if (localStorage.getItem('th') === 'dark') { document.documentElement.dataset.theme = 'dark'; document.getElementById('ico-sun').style.display = 'none'; document.getElementById('ico-moon').style.display = ''; document.querySelector('meta[name="theme-color"]').content = '#0A0610' } })();
+
+    // PHASES
+    function sp(i) { document.querySelectorAll('#xt .pt').forEach((t, j) => t.classList.toggle('on', j === i)); for (let j = 0; j < 4; j++) { const e = document.getElementById('xp' + j); if (e) e.classList.toggle('on', j === i) } }
+
+    // DAYS
+    function sd(i) { document.querySelectorAll('#mt .dt').forEach((t, j) => t.classList.toggle('on', j === i)); for (let j = 0; j < 7; j++) { const e = document.getElementById('m' + j); if (e) e.classList.toggle('on', j === i) } }
+
+    // DATE
+    (function () { const n = new Date(); document.getElementById('hd').textContent = n.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' }); const h = n.getHours(); document.getElementById('greet').innerHTML = (h < 12 ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Good Morning' : 'Good ' + (h < 17 ? 'Afternoon' : 'Evening')) })();
+
+    // QUOTE
+    const qs = ['"The body achieves what the mind believes."', '"Small daily improvements lead to stunning results."', '"The best time to start is today."', '"Consistency beats intensity, every time."', '"Health is the life you gain, not the weight you lose."', '"Every step builds a stronger tomorrow."', '"Care for your body — it is the only home you will ever have."'];
+    document.getElementById('dq').textContent = qs[new Date().getDate() % qs.length];
+
+    // TOAST
+    function tt(m) { const t = document.getElementById('to'); t.textContent = m; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 2200) }
+
+    // STORAGE
+    function gD(k) { try { return JSON.parse(localStorage.getItem(k)) || [] } catch (e) { return [] } }
+    function sD(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) { } }
+    function td() { return new Date().toISOString().split('T')[0] }
+
+    // WEIGHT
+    function sW() { const v = parseFloat(document.getElementById('wi').value); if (!v || v < 30 || v > 200) { tt('Enter valid weight'); return } let w = gD('wt'); w = w.filter(x => x.d !== td()); w.unshift({ d: td(), w: v }); if (w.length > 52) w = w.slice(0, 52); sD('wt', w); document.getElementById('wi').value = ''; rW(); tt('Weight saved!') }
+    function rW() { const w = gD('wt'), b = document.getElementById('wb'); if (!w.length) { b.innerHTML = '<tr><td colspan=3 style="text-align:center;color:var(--t3)">No entries</td></tr>'; return } b.innerHTML = w.slice(0, 8).map((x, i) => { const p = w[i + 1]; let c = '—'; if (p) { const d = (x.w - p.w).toFixed(1); c = d > 0 ? '<span style="color:var(--coral)">+' + d + '</span>' : d < 0 ? '<span style="color:var(--sage)">' + d + '</span>' : '0' } return '<tr><td>' + new Date(x.d).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + '</td><td>' + x.w + ' kg</td><td>' + c + '</td></tr>' }).join('') }
+    rW();
+
+    // EXERCISE CHECKS
+    function tE(el, i) { el.classList.toggle('on'); let c = gD('ec_' + td()); if (!c.length) c = [false, false, false, false, false, false, false]; c[i] = el.classList.contains('on'); sD('ec_' + td(), c); uP() }
+    function uP() { const c = gD('ec_' + td()); document.getElementById('ep').textContent = c.filter(Boolean).length + ' of 7 completed' }
+    (function () { const c = gD('ec_' + td()); if (c.length) document.querySelectorAll('#ec .cb').forEach((e, i) => { if (c[i]) e.classList.add('on') }); uP() })();
+
+    // MOOD/PAIN
+    let cM = 0, cP = 0, cE = 0;
+    function sc(t, v) { const m = { m: 'sm', p: 'sp2', e: 'se' }; document.querySelectorAll('#' + m[t] + ' .sb').forEach((b, i) => b.classList.toggle('on', i === v - 1)); if (t === 'm') cM = v; if (t === 'p') cP = v; if (t === 'e') cE = v }
+    function sM() { if (!cM || !cP) { tt('Select mood and pain'); return } let h = gD('mh'); h = h.filter(x => x.d !== td()); h.unshift({ d: td(), m: cM, p: cP, e: cE || 3 }); if (h.length > 30) h = h.slice(0, 30); sD('mh', h); rH(); tt('Saved!') }
+
+    // CALORIES
+    ['cb', 'cl', 'cdn', 'cs'].forEach(id => document.getElementById(id).addEventListener('input', uCT));
+    function uCT() { const t = ['cb', 'cl', 'cdn', 'cs'].map(id => parseInt(document.getElementById(id).value) || 0).reduce((a, b) => a + b, 0); const el = document.getElementById('ct'); el.textContent = 'Total: ' + t + ' / 1,350'; el.style.color = t > 1500 ? 'var(--coral)' : t > 0 ? 'var(--sage)' : 'var(--t1)' }
+    function sC() { const t = ['cb', 'cl', 'cdn', 'cs'].map(id => parseInt(document.getElementById(id).value) || 0).reduce((a, b) => a + b, 0); if (!t) { tt('Enter at least one meal'); return } let h = gD('mh'); const e = h.find(x => x.d === td()); if (e) e.c = t; else h.unshift({ d: td(), m: cM || 0, p: cP || 0, e: cE || 0, c: t }); sD('mh', h); rH(); tt('Calories saved!') }
+
+    // HISTORY
+    function rH() { const h = gD('mh'), b = document.getElementById('hb'), n = document.getElementById('nh'); if (!h.length) { b.innerHTML = ''; n.style.display = 'block'; return } n.style.display = 'none'; b.innerHTML = h.slice(0, 10).map(x => '<tr><td>' + new Date(x.d).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + '</td><td>' + (x.m || '—') + '</td><td>' + (x.p || '—') + '</td><td>' + (x.c ? x.c : '—') + '</td></tr>').join('') }
+    rH();
+
+    // SERVICE WORKER
+    if ('serviceWorker' in navigator) {
+      const sw = `const C='mhj-v3';
+self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['./'])));self.skipWaiting()});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim()});
+self.addEventListener('fetch',e=>{e.respondWith(fetch(e.request).then(r=>{const c=r.clone();caches.open(C).then(ca=>ca.put(e.request,c));return r}).catch(()=>caches.match(e.request).then(r=>r||caches.match('./'))))});`;
+      navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw], { type: 'application/javascript' }))).catch(() => { });
+    }
+
+    // INSTALL
+    let dp;
+    window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); dp = e; document.getElementById('ib').style.display = 'flex' });
+    function iA() { if (!dp) return; dp.prompt(); dp.userChoice.then(() => { document.getElementById('ib').style.display = 'none'; dp = null }) }
+
+    // MANIFEST
+    (function () { const m = { name: 'My Health Journey', short_name: 'Health', description: 'Personalized wellness companion', start_url: './', display: 'standalone', background_color: '#FDF2F8', theme_color: '#E11D48', orientation: 'portrait', icons: [{ src: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%23E11D48"/><path d="M50 30a12 12 0 00-12 12c0 14 12 24 12 24s12-10 12-24a12 12 0 00-12-12z" fill="white"/></svg>'), sizes: '512x512', type: 'image/svg+xml', purpose: 'any maskable' }] }; const l = document.createElement('link'); l.rel = 'manifest'; l.href = URL.createObjectURL(new Blob([JSON.stringify(m)], { type: 'application/json' })); document.head.appendChild(l) })();
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+</body>
+
+</html>
